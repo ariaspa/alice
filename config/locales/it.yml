@@ -9,7 +9,7 @@ it:
     - ven
     - sab
     abbr_month_names:
-    - 
+    -
     - gen
     - feb
     - mar
@@ -37,9 +37,9 @@ it:
     order:
       - :day
       - :month
-      - :year  
+      - :year
     month_names:
-    - 
+    -
     - gennaio
     - febbraio
     - marzo
@@ -112,6 +112,10 @@ it:
         attributes:
           email:
             invalid_domain: dominio non valido
+      product:
+        attributes:
+          use:
+            required: specificare valore valido
     messages:
       check:
         not_executable: "Impossibile eseguire il controllo:"
@@ -119,12 +123,27 @@ it:
         no_components: "il prodotto non ha componenti."
         no_license: "specificare una licenza per il prodotto."
         no_license_type: "specificare tipo licenza per licenza %{license_name} versione %{license_version}."
+        no_use: "specificare un tipo d'uso per il prodotto."
         no_detected_components: "%{detection_name}: Nessun componente rilevato."
         components_without_license: "I seguenti componenti non hanno una licenza assegnata:"
         not_purchased_component: "%{component_name}: con licenza proprietaria %{license_name} non acquistato."
         no_rules: "%{component_name}: impossibile verificare compatibilità. Mancano regole per la licenza %{license_name}."
         product_use_and_license: " e uso del prodotto contrastano con la licenza compatibilità componenti."
         incompatible_component: "%{component_name}: licenza %{license_name} incompatibile con licenza: %{compatible_license_name}"
+        product_not_found: "Prodotto non trovato - prodotto: %{product_name}"
+        product_version_not_found: "Versione del prodotto inesistente - prodotto: %{product_name} versione: %{version}"
+        licenses_incompatibility: "Difformita' di licenze sul prodotto: %{product_name} versione: %{version}"
+      r_detect:
+        detection_name_taken: "Nome rilevamento duplicato"
+        licenses_file_missing: "File licenses.xml non ricevuto"
+        licenses_file_empty: "File xml vuoto"
+        license_not_found: "Licenza non trovata per uno o piu' componenti"
+        detection_acquired: "Rilevamento acquisito correttamente"
+        detection_not_saved: "Importazione dati non riuscita"
+      detection:
+        detection_data: " - rilevamento: %{detection_name}  prodotto: %{product_name} versione: %{version}" 
+        too_long_components: "Nome o numero versione troppo lungo: %{components_list}"
+        components_list_item: "Componente: %{component_name} Versione: %{version}"
       accepted: deve essere accettata
       blank: non può essere lasciato in bianco
       confirmation: non coincide con la conferma
@@ -236,20 +255,20 @@ it:
 
 # modifiche applicative
 # nodo activerecord:
-     
+
       messages:
         error: "errore"
         errors: "errori"
         taken: "è già in uso"
         record_invalid: "Validazione fallita: %{errors}"
-  
+
     models:
       license: Licenza
       licenses: Licenze
       category: Categoria
       categories: Categorie
       license_type: "Tipo Licenza"
-      license_types: "Tipologia di Licenze" 
+      license_types: "Tipologia di Licenze"
       product: Prodotto
       products: Prodotti
       use: Uso
@@ -261,7 +280,7 @@ it:
       detected_component: "Componente rilevato"
       detected_components: "Componenti rilevati"
       tie: Legame
-      ties: Legami 
+      ties: Legami
       rule: Regola
       rules: Regole
       rule_entry: "Voce della regola"
@@ -269,35 +288,35 @@ it:
       user: "Utente"
       release: "Versione"
       releases: "Versioni"
-    
+
     attributes:
       license:
         description:  "Descrizione"
         category_id:  "Id Categoria"
         text_license: "Testo"
-        name:         "Nome"    
+        name:         "Nome"
         version:      "Versione"
-        category:     "Categoria" 
+        category:     "Categoria"
         license_type: "Tipo Licenza"
         flag_osi:     "OSI"
         notes:        "Note"
         similar_license_id: "Licenza equivalente"
       category:
-        name:         "Nome Categoria"    
+        name:         "Nome Categoria"
         description:  "Descrizione"
       license_type:
-        code:         "Codice"    
+        code:         "Codice"
         description:  "Descrizione"
         protection_level: "Livello protezione"
         protection_level_short: "Protezione"
-        unidentified: "Non identificata"           
+        unidentified: "Non identificata"
       product:
         name:         "Nome"
         name_long:    "Nome prodotto"
         version:      "Ultima versione"
-        title:        "Titolo"    
+        title:        "Titolo"
         description:  "Descrizione"
-        use:          "Uso"           
+        use:          "Uso"
         notes:        "Note"
         groupage:     "Gruppo"
         updated_at:   "Ultimo agg."
@@ -314,7 +333,7 @@ it:
         name:         "Nome"
         version:      "Versione"
         version_short: "Vers."
-        title:        "Titolo"    
+        title:        "Titolo"
         description:  "Descrizione"
         license:      "Licenza"
         notes:        "Note"
@@ -327,7 +346,7 @@ it:
         created_at:   "Data rilevamento"
         xml_file_name: "Nome file xml"
         xml_updated_at: "Data file xml"
-        acquired:     "Acquisito"  
+        acquired:     "Acquisito"
       detected_component:
         name:         "Nome"
         name_long:    "Nome componente"
@@ -348,7 +367,7 @@ it:
       rule_entry:
         license:      "Licenza"
         plus:         "in poi"
-        order:        "Ordine"  
+        order:        "Ordine"
       user:
         sign_in_count: "Accessi"
         current_sign_in_at: "Ultimo accesso"
@@ -384,8 +403,8 @@ it:
     assign: "Assegna"
     release: "Rilascia"
     report: "Stampa"
-    email: "Email"    
-    management: "Gestione"  
+    email: "Email"
+    management: "Gestione"
     view_details: "Vedere i dettagli »"
     download: "Scarica"
     save: "Salva"
@@ -405,7 +424,7 @@ it:
     cancel_my_account: "Cancellami"
     send_reset_instructions: "Invia istruzioni reimpostazione password"
     change_my_password: "Cambia la mia password"
-    
+
     messages:
       graphics: "Report composizione prodotto"
       need_password: "La password è necessaria per eseguire le modifiche"
@@ -425,11 +444,11 @@ it:
       compatibility: "compatibilità licenze"
       components_list_legend: "Legenda: Pr=Proprio, Ac=Acquistato, Es=Escluso, Nt=Note"
       acquisition: "Acquisizione"
-  
+
   will_paginate:
     next_label: "&rarr;"
     previous_label: "&larr;"
-  
+
   devise:
     sessions:
       user:
@@ -450,7 +469,7 @@ it:
         timeout: "Sessione scaduta, accedere nuovamente per continuare."
         inactive: "Il tuo account non è stato ancora attivato."
         not_found_in_database: "Utente non trovato nel database"
-        
+
 
   simple_form:
     "yes": 'Si'
@@ -458,12 +477,12 @@ it:
     required:
       text: 'richiesto'
       mark: '*'
-    error_notification: 
-      default_message: "Correggere i problemi segnalati prima di procedere."        
+    error_notification:
+      default_message: "Correggere i problemi segnalati prima di procedere."
     labels:
       user:
         remember_me: "Ricordami"
- 
+
   flash:
     license:
       create:
@@ -494,7 +513,7 @@ it:
         alert: "Tipo di licenza: errore durante l'aggiornamento!"
       destroy:
         notice: "Tipo di licenza: eliminazione avvenuta con successo!"
-        alert: "Tipo di licenza: errore durante l'eliminazione!"        
+        alert: "Tipo di licenza: errore durante l'eliminazione!"
     product:
       create:
         notice: "Prodotto: creazione avvenuta con successo!"
@@ -504,7 +523,7 @@ it:
         alert: "Prodotto: errore durante l'aggiornamento!"
       destroy:
         notice: "Prodotto: eliminazione avvenuta con successo!"
-        alert: "Prodotto: errore durante l'eliminazione!"     
+        alert: "Prodotto: errore durante l'eliminazione!"
     release:
       create:
         notice: "Versione: creazione avvenuta con successo!"
@@ -524,7 +543,7 @@ it:
         alert: "Uso: errore durante l'aggiornamento!"
       destroy:
         notice: "Uso: eliminazione avvenuta con successo!"
-        alert: "Uso: errore durante l'eliminazione!"        
+        alert: "Uso: errore durante l'eliminazione!"
     component:
       create:
         notice: "Componente: creazione avvenuta con successo!"
@@ -564,8 +583,10 @@ it:
         alert: "Regola: errore durante l'aggiornamento!"
       destroy:
         notice: "Regola: eliminazione avvenuta con successo!"
-        alert: "Regola: errore durante l'eliminazione!"         
+        alert: "Regola: errore durante l'eliminazione!"
 
   infos:
     check:
       start_license: "compatibilità componenti iniziale: %{license_name} %{license_version}"
+      ok: "Controllo ok prodotto: %{product_name} versione: %{version}"
+      product_data: "Prodotto: %{product_name} versione: %{version}"

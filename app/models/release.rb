@@ -1,28 +1,55 @@
-class Release < ActiveRecord::Base
+class Release < ApplicationRecord
   include Ruleby
   include Loggable
-  
-  attr_accessible :product_id, :version_name, :sequential_number, :license_id,
-                  :check_result, :checked_at, :compatible_license_id, :notes
+
   attr_accessor :warnings, :infos
-  
+
   validates_presence_of :version_name, :sequential_number, :license_id
   validates_uniqueness_of :version_name, scope: :product_id
   validates_uniqueness_of :sequential_number, scope: :product_id
-  
+
   has_and_belongs_to_many :components
   belongs_to :product
   belongs_to :license
-  belongs_to :compatible_license, :class_name => "License", :foreign_key => "compatible_license_id"
-  
-  has_and_belongs_to_many :components
+  belongs_to :compatible_license, :optional => true, :class_name => "License", :foreign_key => "compatible_license_id"
+
   has_many :detections, :dependent => :destroy
 
+  before_update do
+    previous = Release.find(id)
+    license = License.find(license_id).description
+    license_previous = License.find(previous.license_id).description
+    if license_id != previous.license_id then
+      if ALICE['txt_logging']
+        alice_logger.info("
+          Product: #{product.name}
+          Release: #{version_name}
+          License: #{license}
+          License previous: #{license_previous}
+          Updated_by: #{user} ")
+      end
+      if ALICE['db_logging']
+        le = LogEntry.new
+        le.date = Time.now
+        le.user = user
+        le.object = "release"
+        le.operation ="U"
+        le.product = product.name
+        le.product_release = version_name
+        le.license = license
+        le.license_previous = license_previous
+        le.save
+      end
+      SpyMailer.release_email(self, license).deliver_now unless ALICE['spy_mail_list'].blank?
+    end
+  end
+  
+  
   after_save do
     product.update_last_release
     product.save
   end
-  
+
   after_destroy do
     product = Product.find(product_id)
     product.update_last_release
@@ -45,35 +72,41 @@ class Release < ActiveRecord::Base
   def del_relation(component_del = [])
    component_del.each do |component_id|
       component = Component.find(component_id)
+      component_license = License.find(component.license_id)
       if self.components.include?(component)
-        alice_logger.info("
-          Product: #{product.name}
-          Release: #{version_name}
-          Component: #{component.name}
-          Destroyed_by: #{user} ")
+        if ALICE['txt_logging']
+          alice_logger.info("
+            Product: #{product.name}
+            Release: #{version_name}
+            Component: #{component.name}
+            Component_license: #{component_license.description}
+            Destroyed_by: #{user} ")
+        end
+        if ALICE['db_logging']
+          le = LogEntry.new
+          le.date = Time.now
+          le.user =user
+          le.object = "relation"
+          le.operation = "D"
+          le.product = product.name
+          le.product_release = version_name
+          le.component = component.name
+          le.license = component_license.description
+          le.save
+        end
+        SpyMailer.relation_destroyed_email(product.name, version_name, component, component_license, user).deliver_now unless ALICE['spy_mail_list'].blank?
 
         components.delete(component)
-      end  
-    end    
+      end
+    end
   end
-  
+
   def next_sequential_number
     if self.product.nil? || self.product.releases.empty?
       return 1
     else
       return (self.product.releases.order(:sequential_number).last.sequential_number.to_int + 1)
     end
-  end
-   
-  def delete_components
-    self.components.each do |component|
-      alice_logger.info("
-        Product: #{product.name}
-        Release: #{version_name}
-        Component: #{component.name}
-        Destroyed_by: #{user} ")
-    end 
-    self.components.clear
   end
 
   def addWarning(key, text)
@@ -88,6 +121,11 @@ class Release < ActiveRecord::Base
 
   def precheck
     check_result = true
+    if !self.product.use.name
+      self.errors.add(I18n.t("errors.messages.check.not_executable"),
+         I18n.t("errors.messages.check.no_use"))
+      check_result = false
+    end
     if self.license.nil?
       self.errors.add(I18n.t("errors.messages.check.not_executable"),
          I18n.t("errors.messages.check.no_license"))
@@ -100,7 +138,7 @@ class Release < ActiveRecord::Base
         return check_result = false
       end
     end
-    if self.components.empty? 
+    if self.components.empty?
       self.errors.add(I18n.t("errors.messages.check.not_executable"),
          I18n.t("errors.messages.check.no_components"))
       check_result = false
@@ -145,5 +183,5 @@ class Release < ActiveRecord::Base
       e.match
     end
   end
-   
+
 end
