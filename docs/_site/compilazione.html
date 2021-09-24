@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>compilazione.md</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+		<script type="text/Javascript" src="/assets/js/docs.js"></script>    
+  </head>
+  <body>
+    <nav>
+	<p>
+	<a href="/" >
+    Introduzione
+  </a>
+	</p>
+  
+  <div class="ul_head">Certificazione</div>
+	<ul>
+  
+    <li><a href="/preparazione.html" >
+      Preparazione
+    </a></li>
+  
+    <li><a href="/compilazione.html"  class="current" >
+      Compilazione
+    </a></li>
+  
+    <li><a href="/rilevazione.html" >
+      Rilevazione
+    </a></li>
+  
+    <li><a href="/assegnazione.html" >
+      Assegnazione
+    </a></li>
+  
+    <li><a href="/acquisizione.html" >
+      Acquisizione
+    </a></li>
+  
+    <li><a href="/controllo.html" >
+      Controllo
+    </a></li>
+  
+  </ul>
+<!--
+  <p>
+	<a href="/troubleshooting" >
+    Risoluzione problemi	
+  </a>
+  </p>
+  -->
+<!--  
+  <div class="ul_head">Classi</div>
+	<ul>
+  
+    <li><a href="/prodotto.html" >
+      Prodotto
+    </a></li>
+  
+    <li><a href="/versione.html" >
+      Versione
+    </a></li>
+  
+    <li><a href="/rilevamento.html" >
+      Rilevamento
+    </a></li>
+  
+    <li><a href="/componente.html" >
+      Componente
+    </a></li>
+  
+    <li><a href="/licenza.html" >
+      Licenza
+    </a></li>
+  
+  </ul>
+
+  <div class="ul_head">Metodi</div>
+	<ul>
+  
+    <li><a href="/rilevazione.html#identificazione-automatica-della-licenza" >
+      Identificazione
+    </a></li>
+  
+    <li><a href="/analisi_compatibilita.html" >
+      Analisi compatibilità
+    </a></li>
+  
+  </ul>
+  -->
+</nav>
+
+    <div class="content">
+      <h1>Compilazione</h1>
+      <p>La compilazione del prodotto fa partire il processo di controllo delle licenze su Alice.</p>
+
+<p>Tale processo, come prima cosa, interroga Alice per sapere se esistono prodotto e versione specificati nel pom.</p>
+<ul>
+  <li>
+    <p>Se il <strong>prodotto non esiste</strong><br />
+Alice segnala <strong>errore</strong> e il processo si interrompe.</p>
+  </li>
+  <li>
+    <p>Se il <strong>prodotto esiste</strong>, ma <strong>non esiste la release</strong></p>
+
+    <ol>
+      <li>La <strong>release viene creata</strong> e le viene <strong>assegnata la licenza</strong> specificata nel pom.</li>
+      <li>La compilazione <strong>genera</strong> uno o più <strong>file xml</strong>, ognuno dei quali contiene un <strong>elenco di componenti</strong> necessari al funzionamento del prodotto (le <em>dependencies</em>) con le loro <strong>relative licenze</strong>.</li>
+      <li>I <strong>file xml</strong> generati sono <strong>inviati ad Alice</strong></li>
+      <li>Alice, per <strong>ognuno</strong> di essi, <strong>crea un rilevamento</strong> che viene <strong>collegato alla release creata</strong>.<br />
+Ogni rilevamento contiene un <strong>elenco di componenti rilevati</strong> e delle loro licenze.</li>
+      <li>Il processo continua con la <a href="rilevazione">Rilevazione</a> dei componenti.</li>
+    </ol>
+  </li>
+  <li>
+    <p>Se il <strong>prodotto esiste</strong>, ed <strong>esiste la release</strong><br />
+Per questioni di efficienza, la compilazione <strong>non genera i file xml</strong>, e <strong>non crea alcun rilevamento</strong>.<br />
+Alice <strong>non esegue alcuna analisi</strong> dei componenti ma, semplicemente, <strong>restituisce l’esito del controllo precedente</strong> eseguito sul prodotto.</p>
+  </li>
+</ul>
+
+
+    </div>
+  </body>
+</html>

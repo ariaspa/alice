@@ -1,0 +1,42 @@
+<nav>
+	<p>
+	<a href="/" {% if page.url == "/" %} class="current" {% endif %}>
+    Introduzione
+  </a>
+	</p>
+  
+  <div class="ul_head">Certificazione</div>
+	<ul>
+  {% for item in site.data.navigation %}
+    <li><a href="{{ item.link }}" {% if page.url == item.link %} class="current" {% endif %}>
+      {{ item.name }}
+    </a></li>
+  {% endfor %}
+  </ul>
+<!--
+  <p>
+	<a href="/troubleshooting" {% if page.url == "/troubleshooting" %} class="current" {% endif %}>
+    Risoluzione problemi	
+  </a>
+  </p>
+  -->
+<!--  
+  <div class="ul_head">Classi</div>
+	<ul>
+  {% for item in site.data.models %}
+    <li><a href="{{ item.link }}" {% if page.url == item.link %} class="current" {% endif %}>
+      {{ item.name }}
+    </a></li>
+  {% endfor %}
+  </ul>
+
+  <div class="ul_head">Metodi</div>
+	<ul>
+  {% for item in site.data.methods %}
+    <li><a href="{{ item.link }}" {% if page.url == item.link %} class="current" {% endif %}>
+      {{ item.name }}
+    </a></li>
+  {% endfor %}
+  </ul>
+  -->
+</nav>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>acquisizione.md</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+		<script type="text/Javascript" src="/assets/js/docs.js"></script>    
+  </head>
+  <body>
+    <nav>
+	<p>
+	<a href="/" >
+    Introduzione
+  </a>
+	</p>
+  
+  <div class="ul_head">Certificazione</div>
+	<ul>
+  
+    <li><a href="/preparazione.html" >
+      Preparazione
+    </a></li>
+  
+    <li><a href="/compilazione.html" >
+      Compilazione
+    </a></li>
+  
+    <li><a href="/rilevazione.html" >
+      Rilevazione
+    </a></li>
+  
+    <li><a href="/assegnazione.html" >
+      Assegnazione
+    </a></li>
+  
+    <li><a href="/acquisizione.html"  class="current" >
+      Acquisizione
+    </a></li>
+  
+    <li><a href="/controllo.html" >
+      Controllo
+    </a></li>
+  
+  </ul>
+<!--
+  <p>
+	<a href="/troubleshooting" >
+    Risoluzione problemi	
+  </a>
+  </p>
+  -->
+<!--  
+  <div class="ul_head">Classi</div>
+	<ul>
+  
+    <li><a href="/prodotto.html" >
+      Prodotto
+    </a></li>
+  
+    <li><a href="/versione.html" >
+      Versione
+    </a></li>
+  
+    <li><a href="/rilevamento.html" >
+      Rilevamento
+    </a></li>
+  
+    <li><a href="/componente.html" >
+      Componente
+    </a></li>
+  
+    <li><a href="/licenza.html" >
+      Licenza
+    </a></li>
+  
+  </ul>
+
+  <div class="ul_head">Metodi</div>
+	<ul>
+  
+    <li><a href="/rilevazione.html#identificazione-automatica-della-licenza" >
+      Identificazione
+    </a></li>
+  
+    <li><a href="/analisi_compatibilita.html" >
+      Analisi compatibilità
+    </a></li>
+  
+  </ul>
+  -->
+</nav>
+
+    <div class="content">
+      <h1>Acquisizione componenti rilevati</h1>
+      <p>Se non ci sono problemi, Alice acquisisce automaticamente i componenti rilevati.<br />
+Diventa <strong>necessario</strong> svolgere esplicitamente questo passo <strong>solo se si sono dovute assegnare licenze manualmente</strong>.</p>
+
+<p>Una volta che tutti i componenti rilevati hanno una licenza assegnata, <strong>Alice deve acquisire il rilevamento</strong>, per memorizzare nel suo database, per ognuno di essi:</p>
+<ul>
+  <li>nome del componente</li>
+  <li>relase del componente</li>
+  <li>licenza associata.</li>
+</ul>
+
+<p>Da quel momento, ogni volta che lo stesso “<em>componente + release</em>” verrà rilevato successivamente, Alice non cercherà più di associargli una licenza, ma <strong>utilizzerà l’associazione memorizzata</strong> nel database.<br />
+Questo evita di dover di nuovo associare manualmente la licenza a quel componente nel caso in cui venga incontrato in rilevamenti successivi.</p>
+
+<p>Se però è stato <strong>emesso un errore</strong> di “<em>Licenza non trovata per uno o piu’ componenti</em>”, cosa che ha reso necessaria l’<a href="assegnazione">Assegnazione</a> manuale delle licenze, Alice ha <strong>interrotto il processo</strong> di acquisizione automatica del rilevamento.<br />
+Per questo motivo, una volta risolti tutti i <em>KO</em> segnalati sui componenti, <strong>è necessario compiere questo passo manualmente</strong>.</p>
+
+<p>La funzione di acquisizione si richiama dalla videata di <em>Elenco rilevamenti</em></p>
+
+<p><img src="/assets/rilevamenti.png" alt="elenco rilevamenti" class="small" onclick="zoomImage(this)" /></p>
+
+<p>premendo il tasto acquisisci: <img src="/assets/pulsante_acquisisci.png" alt="acquisisci" /> e poi confermando con “<em>Salva</em>”.</p>
+
+<p>Il segnalino in giallo sulla rilga segnala lo stato di incompletezza del rilevamento.</p>
+
+<p>Una volta <strong>acquisiti tutti i rilevamenti</strong>, è possibile passare al <a href="controllo">Controllo</a> di compatibilità delle licenze.</p>
+
+    </div>
+  </body>
+</html>

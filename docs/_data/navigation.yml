@@ -1,0 +1,13 @@
+- name: Preparazione
+  link: /preparazione.html
+- name: Compilazione
+  link: /compilazione.html
+- name: Rilevazione
+  link: /rilevazione.html
+- name: Assegnazione
+  link: /assegnazione.html
+- name: Acquisizione
+  link: /acquisizione.html
+- name: Controllo
+  link: /controllo.html
+  

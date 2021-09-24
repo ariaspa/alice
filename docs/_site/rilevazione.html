@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>rilevazione.md</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+		<script type="text/Javascript" src="/assets/js/docs.js"></script>    
+  </head>
+  <body>
+    <nav>
+	<p>
+	<a href="/" >
+    Introduzione
+  </a>
+	</p>
+  
+  <div class="ul_head">Certificazione</div>
+	<ul>
+  
+    <li><a href="/preparazione.html" >
+      Preparazione
+    </a></li>
+  
+    <li><a href="/compilazione.html" >
+      Compilazione
+    </a></li>
+  
+    <li><a href="/rilevazione.html"  class="current" >
+      Rilevazione
+    </a></li>
+  
+    <li><a href="/assegnazione.html" >
+      Assegnazione
+    </a></li>
+  
+    <li><a href="/acquisizione.html" >
+      Acquisizione
+    </a></li>
+  
+    <li><a href="/controllo.html" >
+      Controllo
+    </a></li>
+  
+  </ul>
+<!--
+  <p>
+	<a href="/troubleshooting" >
+    Risoluzione problemi	
+  </a>
+  </p>
+  -->
+<!--  
+  <div class="ul_head">Classi</div>
+	<ul>
+  
+    <li><a href="/prodotto.html" >
+      Prodotto
+    </a></li>
+  
+    <li><a href="/versione.html" >
+      Versione
+    </a></li>
+  
+    <li><a href="/rilevamento.html" >
+      Rilevamento
+    </a></li>
+  
+    <li><a href="/componente.html" >
+      Componente
+    </a></li>
+  
+    <li><a href="/licenza.html" >
+      Licenza
+    </a></li>
+  
+  </ul>
+
+  <div class="ul_head">Metodi</div>
+	<ul>
+  
+    <li><a href="/rilevazione.html#identificazione-automatica-della-licenza" >
+      Identificazione
+    </a></li>
+  
+    <li><a href="/analisi_compatibilita.html" >
+      Analisi compatibilità
+    </a></li>
+  
+  </ul>
+  -->
+</nav>
+
+    <div class="content">
+      <h1>Rilevazione dei componenti</h1>
+      <p>La compilazione del prodotto genera uno o più file xml e li inoltra ad Alice che, per ogni file ricevuto crea un <a href="rilevamento">Rilevamento</a> e lo associa alla <a href="release">Release</a> del prodotto che è stata appena creata.</p>
+
+<p>Per ogni tag <em>artifactId</em> contenuto nel file xml, crea un <a href="componente">componente rilevato</a>, e lo associa al rilevamento.</p>
+
+<p>Alice quindi <strong>cerca di identificare automaticamente la licenza</strong> giusta per ogni componente rilevato.</p>
+
+<p><strong>Se riesce</strong>, passa direttamente alla fase successiva di <a href="acquisizione">Acquisizione</a>.<br />
+<strong>Altrimenti</strong> arresta il processo e segnala: “<em>errori sui componenti del rilevamento</em>”.</p>
+
+<p>Quando questo succede è necessario <strong>assegnare manualmente</strong> la licenza per i componenti che sono in errore.</p>
+
+<p><strong>Per comprendere</strong> la casistica degli <strong>errori</strong>, illustrata alla voce <a href="assegnazione">Assegnazione</a>, e <strong>sapere quale licenza</strong> assegnare manualmente ai componenti, è indispensabile <strong>capire</strong> in che modo Alice cerca di identificare automaticamente la licenza del componente.</p>
+
+<h2 id="identificazione-automatica-della-licenza">Identificazione automatica della licenza</h2>
+<p>Per identificare automaticamente la licenza da assegnare Alice si basa su:</p>
+<ul>
+  <li>il <strong>file xml</strong> generato dalla compilazione</li>
+  <li>un proprio <strong>archivio componenti</strong> software dei quali è nota la licenza da assegnare</li>
+  <li>un rudimentale <strong>algoritmo</strong> di <em>stemming</em> sul nome della licenza contenuto nel file xml</li>
+  <li>un archivio di <strong>licenze conosciute</strong></li>
+</ul>
+
+<h3 id="il-file-xml">Il file xml</h3>
+<p>Un esempio rappresentativo della struttura dei file xml inviati dalla compilazione ad Alice, è il seguente:</p>
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+&lt;licenseSummary&gt;
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;axis&lt;/groupId&gt;
+      &lt;artifactId&gt;axis&lt;/artifactId&gt;
+      &lt;version&gt;1.4&lt;/version&gt;
+      &lt;licenses&gt;
+        &lt;license&gt;
+          &lt;name&gt;The Apache Software License, Version 2.0&lt;/name&gt;
+          &lt;url&gt;http://www.apache.org/licenses/LICENSE-2.0.txt&lt;/url&gt;
+          &lt;distribution&gt;repo&lt;/distribution&gt;
+        &lt;/license&gt;
+      &lt;/licenses&gt;
+    &lt;/dependency&gt;
+    . . . 
+    . . .
+  &lt;/dependencies&gt;
+&lt;/licenseSummary&gt;
+</pre>
+
+<p>Nell’esempio riportato è dichiarato il componente <strong>axis</strong> versione <strong>1.4</strong> con licenza <strong>The Apache Software License, Version 2.0</strong>.</p>
+
+<h3 id="lalgoritmo">L’algoritmo</h3>
+<p>Per <strong>prima</strong> cosa Alice <strong>cerca nel suo archivio</strong> il componente <em>axis</em> con versione <em>1.4</em>.</p>
+
+<p><strong>Se lo trova</strong> assegna la licenza memorizzata in archivio e <strong>ignora la licenza dichiarata nel file xml</strong>.<br />
+Il componente rilevato è considerato <strong>OK</strong>.</p>
+
+<p><strong>Se</strong> invece il componente <strong>non è in archivio</strong> (o è presente ma con una versione diversa, ad es. <em>1.3</em>), Alice <strong>analizza</strong> il contenuto del <strong>nodo &lt;licenses&gt;</strong>.</p>
+
+<p>Nel caso in esempio analizza la stringa “<em>The Apache Software License, Version 2.0</em>” e, attraverso lo <strong>stemming</strong>, ottiene il <strong>nome della licenza</strong>: “<em>Apache Software</em>” e il numero della <strong>versione</strong>: “<em>2.0</em>”.</p>
+
+<p><strong>Cerca</strong> quindi nell’ <strong>archivio licenze</strong> la licenza con quel nome e quella versione.</p>
+
+<p><strong>Se la trova</strong> il componente è considerato <strong>OK</strong>.</p>
+
+<p><strong>Altrimenti</strong> il componente è marcato con <strong>KO</strong> e Alice emetterà l’errore “<strong>Licenza non trovata per uno o piu’ componenti</strong>”.<br />
+In tal caso sarà necessario <a href="assegnazione">assegnare manualmente la licenza</a> ai componenti in errore.</p>
+
+    </div>
+  </body>
+</html>

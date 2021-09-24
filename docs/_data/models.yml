@@ -1,0 +1,11 @@
+- name: Prodotto
+  link: /prodotto.html
+- name: Versione
+  link: /versione.html
+- name: Rilevamento
+  link: /rilevamento.html
+- name: Componente
+  link: /componente.html
+- name: Licenza
+  link: /licenza.html
+  

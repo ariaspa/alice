@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>assegnazione.md</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+		<script type="text/Javascript" src="/assets/js/docs.js"></script>    
+  </head>
+  <body>
+    <nav>
+	<p>
+	<a href="/" >
+    Introduzione
+  </a>
+	</p>
+  
+  <div class="ul_head">Certificazione</div>
+	<ul>
+  
+    <li><a href="/preparazione.html" >
+      Preparazione
+    </a></li>
+  
+    <li><a href="/compilazione.html" >
+      Compilazione
+    </a></li>
+  
+    <li><a href="/rilevazione.html" >
+      Rilevazione
+    </a></li>
+  
+    <li><a href="/assegnazione.html"  class="current" >
+      Assegnazione
+    </a></li>
+  
+    <li><a href="/acquisizione.html" >
+      Acquisizione
+    </a></li>
+  
+    <li><a href="/controllo.html" >
+      Controllo
+    </a></li>
+  
+  </ul>
+<!--
+  <p>
+	<a href="/troubleshooting" >
+    Risoluzione problemi	
+  </a>
+  </p>
+  -->
+<!--  
+  <div class="ul_head">Classi</div>
+	<ul>
+  
+    <li><a href="/prodotto.html" >
+      Prodotto
+    </a></li>
+  
+    <li><a href="/versione.html" >
+      Versione
+    </a></li>
+  
+    <li><a href="/rilevamento.html" >
+      Rilevamento
+    </a></li>
+  
+    <li><a href="/componente.html" >
+      Componente
+    </a></li>
+  
+    <li><a href="/licenza.html" >
+      Licenza
+    </a></li>
+  
+  </ul>
+
+  <div class="ul_head">Metodi</div>
+	<ul>
+  
+    <li><a href="/rilevazione.html#identificazione-automatica-della-licenza" >
+      Identificazione
+    </a></li>
+  
+    <li><a href="/analisi_compatibilita.html" >
+      Analisi compatibilità
+    </a></li>
+  
+  </ul>
+  -->
+</nav>
+
+    <div class="content">
+      <h1>Assegnazione manuale delle licenze</h1>
+      <p>Questa funzionalità è <strong>necessaria solo se Alice ha emesso l’errore:</strong> “<em>Licenza non trovata per uno o piu’ componenti</em>”.<br />
+In tal bisogna intervenire manualmente per associare la licenza giusta ai componenti che risultano in errore.</p>
+
+<h2 id="avviso-importante">Avviso Importante</h2>
+
+<p>Tutte <strong>le operazioni di modifica</strong> sui componenti rilevati:</p>
+<ul>
+  <li>Assegnazione della licenza ad un componente</li>
+  <li>Modifica della licenza assegnata</li>
+  <li>Cancellazione di un componente rilevato</li>
+  <li>Impostazione dei flag di componente “Acquistato” o “Proprio”</li>
+</ul>
+
+<p>illustrate nel seguito, <strong>sono determinanti per l’esito finale del controllo</strong>.</p>
+
+<p>Pertanto:</p>
+
+<p><span class="danger">Tutte queste operazioni e la user-id di chi le esegue, sono registrate in appositi log.</span></p>
+
+<p><span class="danger">In caso di contestazioni per violazione di licenza o dichiarazioni false, potreste essere ritenuti responsabili, anche con conseguenze legali.</span></p>
+
+<p>Quindi, se non siete certi di <strong>assegnare la licenza corretta</strong>, o non siete sicuri che i <strong>dati</strong> che state impostando siano <strong>corretti e veritieri</strong>: chiedete assistenza.</p>
+
+<h2 id="identificare-i-componenti-in-errore">Identificare i componenti in errore</h2>
+
+<p>Solitamente nel messaggio di errore è compreso un link al rilevamento che contiene i componenti in errore.<br />
+Questi sono identificabili dal <strong>KO</strong> nella colonna <em>Licenza assegnata</em>.</p>
+
+<p><img src="/assets/detected_components.png" alt="elenco componenti rilevati" class="small" onclick="zoomImage(this)" /></p>
+
+<h2 id="errori-nellassegnazione-automatica-della-licenze">Errori	nell’assegnazione automatica della licenze</h2>
+<p>Dato il suo funzionamento, quando la ricerca automatica fallisce significa innanzitutto che:</p>
+<ol>
+  <li>il binomio <em>componente + versione</em> non è presente nell’archivio componenti di Alice</li>
+  <li>nella lettura del nodo <em>&lt;licenses&gt;</em> si è <strong>probabilmente</strong> verificato uno dei casi seguenti.</li>
+</ol>
+
+<h3 id="caso-1-licenza-senza-versione">Caso 1: Licenza senza versione</h3>
+<p><img src="/assets/axis-ant.png" alt="licenza_senza_versione" class="small" onclick="zoomImage(this)" />
+La licenza è stata specificata senza il numero di versione.<br />
+Per molte licenze, nel caso in esempio l’Apache, esistono più versioni, che introducono ulteriori clausole più restrittive o più liberali.<br />
+Ciò rende necessario specificare la versione.</p>
+
+<p>La soluzione consiste nell’entrare in modifica del componente rilevato e <strong>selezionare la licenza di una data versione</strong>.</p>
+
+<p>A volte il numero di versione in realtà è contenuto nella descrizione della licenza rilevata ma non è stato identificato dallo <em>stemming</em>.<br />
+In caso non si riesca a determinare il numero di versione della licenza, si sceglie quella più recente.</p>
+
+<h3 id="caso-2-licenza-scritta-in-modo-poco-standard">Caso 2: Licenza scritta in modo poco standard</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![licenza_scritta_in_modo_non_standard](/assets/c3p0.png){:.small}{:onclick="zoomImage(this)"}
+</code></pre></div></div>
+
+<p>Non esiste una codifica standard delle licenze, l’autore del componente scrive il nome della licenza liberamente; lo <em>stemming</em> spesso non riesce a riconoscere dal testo una licenza che per un essere umano risulta intuibile.</p>
+
+<p>Nell’esempio per il componente “c3p0” la licenza è stata specificata solo in sigla (LGPL) e quindi non è stata riconosciuta.<br />
+Per il successivo componente “javassist” la descrizione completa (GNU Lesser General Public License) è stata invece riconosciuta.</p>
+
+<p>La soluzione è semplice:<br />
+Si entra in modifica del componente rilevato e si seleziona la licenza corrispondente.</p>
+
+<h3 id="caso-3-licenza-open-source-non-presente-nel-database">Caso 3: Licenza open source non presente nel database</h3>
+<p><img src="/assets/re2j.png" alt="licenza_open_source_non_presente_nel_database" class="small" onclick="zoomImage(this)" />
+La licenza è specificata correttamente ma non è presente nell’archivio licenze di Alice.</p>
+
+<p>Accade ormai di rado. In Alice sono memorizzate oltre 100 licenze open source.<br />
+Nel caso succeda la licenza deve essere aggiunta all’archivio.<br />
+Tale operazione però può essere fatta solo da un utente di tipo amministratore.<br />
+E’ necessario chiedere assistenza.</p>
+
+<h3 id="caso-4-più-licenze">Caso 4: Più licenze</h3>
+<p><img src="/assets/javassist.png" alt="piu_licenze" class="small" onclick="zoomImage(this)" />
+Per certi componenti sono dichiarate più licenze.<br />
+L’autore lascia cioè liberi di scegliere quale licenza utilizzare.</p>
+
+<p>Si veda questo esempio:</p>
+<pre>
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.javassist&lt;/groupId&gt;
+      &lt;artifactId&gt;javassist&lt;/artifactId&gt;
+      &lt;version&gt;3.18.1-GA&lt;/version&gt;
+      &lt;licenses&gt;
+        &lt;license&gt;
+          &lt;name&gt;MPL 1.1&lt;/name&gt;
+          &lt;url&gt;http://www.mozilla.org/MPL/MPL-1.1.html&lt;/url&gt;
+        &lt;/license&gt;
+        &lt;license&gt;
+          &lt;name&gt;LGPL 2.1&lt;/name&gt;
+          &lt;url&gt;http://www.gnu.org/licenses/lgpl-2.1.html&lt;/url&gt;
+        &lt;/license&gt;
+        &lt;license&gt;
+          &lt;name&gt;Apache License 2.0&lt;/name&gt;
+          &lt;url&gt;http://www.apache.org/licenses/&lt;/url&gt;
+        &lt;/license&gt;
+      &lt;/licenses&gt;
+    &lt;/dependency&gt; 
+</pre>
+
+<p>In questo caso il componente: “<em>javassist</em>” risulta rilevato 3 volte: una per ogni licenza.</p>
+
+<p>La cosa migliore da fare è <strong>cancellare</strong> le righe relative alle licenze che non interessano, oppure modificare le righe in modo da <strong>assegnare sempre la stessa licenza</strong>.</p>
+
+<p>Conviene tenere la licenza meno “protettiva”. (Per il concetto di protettività delle licenza si veda la pagina relativa alle <a href="licenze">Licenze</a>).</p>
+
+<h3 id="caso-5-licenza-doppia">Caso 5: Licenza doppia</h3>
+<p><img src="/assets/javax_mail.png" alt="licenza_doppia" class="small" onclick="zoomImage(this)" />
+Simile al precedente, ma in questo caso la dichiarazione nel file xml è simile a questo esempio:</p>
+<pre>
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.sun.mail&lt;/groupId&gt;
+      &lt;artifactId&gt;javax.mail&lt;/artifactId&gt;
+      &lt;version&gt;1.5.2&lt;/version&gt;
+      &lt;licenses&gt;
+        &lt;license&gt;
+          &lt;name&gt;CDDL/GPLv2+CE&lt;/name&gt;
+          &lt;url&gt;https://glassfish.java.net/public/CDDL+GPL_1_1.html&lt;/url&gt;
+          &lt;distribution&gt;repo&lt;/distribution&gt;
+          &lt;comments&gt;CDDL or GPL version 2 plus the Classpath Exception&lt;/comments&gt;
+        &lt;/license&gt;
+      &lt;/licenses&gt;
+    &lt;/dependency&gt;
+</pre>
+
+<p>Nel tag del nome della licenza ne sono citate 2: CDDL e GPL 2+CE.<br />
+In questo caso conviene semplicemente selezionare la meno protettiva.</p>
+
+<h3 id="caso-6-nessuna-licenza">Caso 6: Nessuna licenza</h3>
+<p><img src="/assets/jstl.png" alt="nessuna_licenza" class="small" onclick="zoomImage(this)" />
+Nel file xml, al posto della licenza del componente è presente il commento:<br />
+<code class="language-plaintext highlighter-rouge">&lt;!--No license information available. --&gt;</code><br />
+che viene riportato nella colonna <em>Licenza rilevata</em></p>
+
+<p>E’ il caso peggiore: durante la compilazione non è stato trovato alcun dato riguardante la licenza del componente.<br />
+L’unica soluzione è ricercare su Internet il prodotto per capire con quale licenza viene rilasciato.</p>
+
+<p>Se il prodotto ha una licenza open source, il caso diventa riconducibile ai casi precedenti, altrimenti possono presentarsi due sottocasi:</p>
+
+<h4 id="caso-61-licenza-proprietaria-specifica">Caso 6.1: Licenza proprietaria specifica</h4>
+<p>I prodotti proprietari hanno spesso una propria licenza.<br />
+Questa normalmente non è presente nell’archivio licenze ma, a differenza del caso 3 (licenza open source non trovata), <strong>non va aggiunta</strong>.<br />
+Le licenze proprietarie sono troppe da gestire.</p>
+
+<p>Se si capisce che il componente è di tipo proprietario, conviene selezionare la <strong>Generica licenza proprietaria (copyright)</strong>.</p>
+
+<p>Se si è <strong>sicuri</strong> che il prodotto è stato <strong>regolarmente acquistato da ARIA</strong>, occorre <strong>spuntare</strong> la casella <strong>Acquistato</strong>.</p>
+
+<h4 id="caso-62-componente-scritto-da-o-per-conto-di-aria">Caso 6.2: Componente scritto da o per conto di ARIA</h4>
+<p>Quando <strong>si sa</strong> che il componente è stato scritto all’interno di ARIA o da un fornitore espressamente per ARIA, si assegna la licenza <em>Ariaspa</em>.<br />
+Inoltre occorre <strong>spuntare</strong> la casella <strong>Proprio</strong>, per segnalare che il componente è di proprietà di ARIA.</p>
+
+<h3 id="passo-successivo">Passo successivo</h3>
+<p>Una volta assegnata la licenza corretta a tutti i componenti in errore, è necessario procedere all’<a href="acquisizione">Acquisizione</a> dei componenti rilevati.</p>
+
+    </div>
+  </body>
+</html>
