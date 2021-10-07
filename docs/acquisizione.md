@@ -19,9 +19,9 @@ Per questo motivo, una volta risolti tutti i *KO* segnalati sui componenti, **è
 
 La funzione di acquisizione si richiama dalla videata di *Elenco rilevamenti*
 
-![elenco rilevamenti](/assets/rilevamenti.png){:.small}{:onclick="zoomImage(this)"}
+![elenco rilevamenti]({{site.baseurl}}/assets/rilevamenti.png){:.small}{:onclick="zoomImage(this)"}
 
-premendo il tasto acquisisci: ![acquisisci](/assets/pulsante_acquisisci.png) e poi confermando con "*Salva*".
+premendo il tasto acquisisci: ![acquisisci]({{site.baseurl}}/assets/pulsante_acquisisci.png) e poi confermando con "*Salva*".
 
 Il segnalino in giallo sulla rilga segnala lo stato di incompletezza del rilevamento.
 

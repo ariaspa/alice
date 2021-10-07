@@ -1,6 +1,6 @@
 <nav>
 	<p>
-	<a href="/" {% if page.url == "/" %} class="current" {% endif %}>
+	<a href="{{site.baseurl}}/" {% if page.url == "/" %} class="current" {% endif %}>
     Introduzione
   </a>
 	</p>
@@ -8,7 +8,7 @@
   <div class="ul_head">Certificazione</div>
 	<ul>
   {% for item in site.data.navigation %}
-    <li><a href="{{ item.link }}" {% if page.url == item.link %} class="current" {% endif %}>
+    <li><a href="{{site.baseurl}}{{ item.link }}" {% if page.url == item.link %} class="current" {% endif %}>
       {{ item.name }}
     </a></li>
   {% endfor %}

@@ -29,7 +29,7 @@ Quindi, se non siete certi di **assegnare la licenza corretta**, o non siete sic
 Solitamente nel messaggio di errore è compreso un link al rilevamento che contiene i componenti in errore.  
 Questi sono identificabili dal **KO** nella colonna *Licenza assegnata*.
 
-![elenco componenti rilevati](/assets/detected_components.png){:.small}{:onclick="zoomImage(this)"}
+![elenco componenti rilevati]({{site.baseurl}}/assets/detected_components.png){:.small}{:onclick="zoomImage(this)"}
 
 
 
@@ -40,7 +40,7 @@ Dato il suo funzionamento, quando la ricerca automatica fallisce significa innan
 
 
 ### Caso 1: Licenza senza versione
-![licenza_senza_versione](/assets/axis-ant.png){:.small}{:onclick="zoomImage(this)"}
+![licenza_senza_versione]({{site.baseurl}}/assets/axis-ant.png){:.small}{:onclick="zoomImage(this)"}
 La licenza è stata specificata senza il numero di versione.  
 Per molte licenze, nel caso in esempio l'Apache, esistono più versioni, che introducono ulteriori clausole più restrittive o più liberali.  
 Ciò rende necessario specificare la versione.
@@ -52,7 +52,7 @@ In caso non si riesca a determinare il numero di versione della licenza, si sceg
 
 
 ### Caso 2: Licenza scritta in modo poco standard
-	![licenza_scritta_in_modo_non_standard](/assets/c3p0.png){:.small}{:onclick="zoomImage(this)"}
+![licenza_scritta_in_modo_non_standard]({{site.baseurl}}/assets/c3p0.png){:.small}{:onclick="zoomImage(this)"}
 
 Non esiste una codifica standard delle licenze, l'autore del componente scrive il nome della licenza liberamente; lo *stemming* spesso non riesce a riconoscere dal testo una licenza che per un essere umano risulta intuibile.
 
@@ -64,7 +64,7 @@ Si entra in modifica del componente rilevato e si seleziona la licenza corrispon
 
 
 ### Caso 3: Licenza open source non presente nel database
-![licenza_open_source_non_presente_nel_database](/assets/re2j.png){:.small}{:onclick="zoomImage(this)"}
+![licenza_open_source_non_presente_nel_database]({{site.baseurl}}/assets/re2j.png){:.small}{:onclick="zoomImage(this)"}
 La licenza è specificata correttamente ma non è presente nell'archivio licenze di Alice.
 
 Accade ormai di rado. In Alice sono memorizzate oltre 100 licenze open source.  
@@ -73,7 +73,7 @@ Tale operazione però può essere fatta solo da un utente di tipo amministratore
 E' necessario chiedere assistenza.
 
 ### Caso 4: Più licenze
-![piu_licenze](/assets/javassist.png){:.small}{:onclick="zoomImage(this)"}
+![piu_licenze]({{site.baseurl}}/assets/javassist.png){:.small}{:onclick="zoomImage(this)"}
 Per certi componenti sono dichiarate più licenze.  
 L'autore lascia cioè liberi di scegliere quale licenza utilizzare.
 
@@ -108,7 +108,7 @@ Conviene tenere la licenza meno "protettiva". (Per il concetto di protettività 
 
 
 ### Caso 5: Licenza doppia  
-![licenza_doppia](/assets/javax_mail.png){:.small}{:onclick="zoomImage(this)"}
+![licenza_doppia]({{site.baseurl}}/assets/javax_mail.png){:.small}{:onclick="zoomImage(this)"}
 Simile al precedente, ma in questo caso la dichiarazione nel file xml è simile a questo esempio:
 <pre>
     &lt;dependency&gt;
@@ -131,7 +131,7 @@ In questo caso conviene semplicemente selezionare la meno protettiva.
 
 
 ### Caso 6: Nessuna licenza
-![nessuna_licenza](/assets/jstl.png){:.small}{:onclick="zoomImage(this)"}
+![nessuna_licenza]({{site.baseurl}}/assets/jstl.png){:.small}{:onclick="zoomImage(this)"}
 Nel file xml, al posto della licenza del componente è presente il commento:  
 `<!--No license information available. -->`  
 che viene riportato nella colonna *Licenza rilevata*

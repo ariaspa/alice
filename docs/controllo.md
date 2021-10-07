@@ -26,14 +26,14 @@ Anche in questo caso occorre analizzare la segnalazione che Alice emette.
 La funzione di controllo licenze si richiama dalla videata di *Elenco prodotti* o da quella di *Elenco versioni*.  
 Nel primo caso il controllo viene eseguito sull'ultima release, nel secondo caso è possibile scegliere su quale release eseguire il controllo.
 
-![elenco prodotti](/assets/elenco_prodotti.png){:.small}{:onclick="zoomImage(this)"}
+![elenco prodotti]({{site.baseurl}}/assets/elenco_prodotti.png){:.small}{:onclick="zoomImage(this)"}
 
-Dopo aver premuto il tasto ![controllo](/assets/pulsante_controlla.png), compare la videata con l'esito del controllo.
+Dopo aver premuto il tasto ![controllo]({{site.baseurl}}/assets/pulsante_controlla.png), compare la videata con l'esito del controllo.
 
 
 ## Come leggere il risultato del controllo
 
-![affero](/assets/compatib_affero.png){:.small}{:onclick="zoomImage(this)"}
+![affero]({{site.baseurl}}/assets/compatib_affero.png){:.small}{:onclick="zoomImage(this)"}
 
 La videata può avere fino a quattro sezioni:
 
@@ -46,7 +46,7 @@ La licenza *ariaspa 1.0* è quella con cui per default sono rilasciati quasi tut
 E' una licenza di tipo proprietario.
 * *Use*  
 Tipo d'uso del prodotto.
-* *Licenza compatibilità componenti*
+* *Licenza compatibilità componenti*  
 La licenza risultante dall'[analisi di compatibilità](analisi_compatibilita) dell'insieme delle licenze di tutti i componenti del prodotto.
 
 
