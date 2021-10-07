@@ -33,4 +33,4 @@ I dati fondamentali per l'esecuzione del controllo sono:
 Nel *pom* di compilazione devono essere inserite le istruzioni per la generazione del file xml.  
 #### <span class="badge to_do">To do</span> Istruzioni da inserire nel pom
 
-Una volta completata la preparazione è possibile passare alla [Compilazione](compilazione). 
+Una volta completata la preparazione è possibile passare alla [Compilazione]({{site.baseurl}}/compilazione). 

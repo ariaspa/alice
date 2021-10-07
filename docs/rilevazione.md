@@ -3,19 +3,19 @@ layout: default
 title: Rilevazione dei componenti 
 ---
 
-La compilazione del prodotto genera uno o più file xml e li inoltra ad Alice che, per ogni file ricevuto crea un [Rilevamento](rilevamento) e lo associa alla [Release](release) del prodotto che è stata appena creata.  
+La compilazione del prodotto genera uno o più file xml e li inoltra ad Alice che, per ogni file ricevuto crea un [Rilevamento]({{site.baseurl}}/rilevamento) e lo associa alla [Release](release) del prodotto che è stata appena creata.  
 
-Per ogni tag *artifactId* contenuto nel file xml, crea un [componente rilevato](componente), e lo associa al rilevamento.  
+Per ogni tag *artifactId* contenuto nel file xml, crea un [componente rilevato]({{site.baseurl}}/componente), e lo associa al rilevamento.  
 
 Alice quindi **cerca di identificare automaticamente la licenza** giusta per ogni componente rilevato.
 
-**Se riesce**, passa direttamente alla fase successiva di [Acquisizione](acquisizione).  
+**Se riesce**, passa direttamente alla fase successiva di [Acquisizione]({{site.baseurl}}/acquisizione).  
 **Altrimenti** arresta il processo e segnala: "*errori sui componenti del rilevamento*".
 
 Quando questo succede è necessario **assegnare manualmente** la licenza per i componenti che sono in errore.
 
 
-**Per comprendere** la casistica degli **errori**, illustrata alla voce [Assegnazione](assegnazione), e **sapere quale licenza** assegnare manualmente ai componenti, è indispensabile **capire** in che modo Alice cerca di identificare automaticamente la licenza del componente. 
+**Per comprendere** la casistica degli **errori**, illustrata alla voce [Assegnazione]({{site.baseurl}}/assegnazione), e **sapere quale licenza** assegnare manualmente ai componenti, è indispensabile **capire** in che modo Alice cerca di identificare automaticamente la licenza del componente. 
 
 ## Identificazione automatica della licenza
 Per identificare automaticamente la licenza da assegnare Alice si basa su:
@@ -65,4 +65,4 @@ Nel caso in esempio analizza la stringa "*The Apache Software License, Version 2
 **Se la trova** il componente è considerato **OK**.
 
 **Altrimenti** il componente è marcato con **KO** e Alice emetterà l'errore "**Licenza non trovata per uno o piu' componenti**".  
-In tal caso sarà necessario [assegnare manualmente la licenza](assegnazione) ai componenti in errore.
+In tal caso sarà necessario [assegnare manualmente la licenza]({{site.baseurl}}/assegnazione) ai componenti in errore.

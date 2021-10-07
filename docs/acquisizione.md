@@ -14,7 +14,7 @@ Una volta che tutti i componenti rilevati hanno una licenza assegnata, **Alice d
 Da quel momento, ogni volta che lo stesso "*componente + release*" verrà rilevato successivamente, Alice non cercherà più di associargli una licenza, ma **utilizzerà l'associazione memorizzata** nel database.  
 Questo evita di dover di nuovo associare manualmente la licenza a quel componente nel caso in cui venga incontrato in rilevamenti successivi.
 
-Se però è stato **emesso un errore** di "*Licenza non trovata per uno o piu' componenti*", cosa che ha reso necessaria l'[Assegnazione](assegnazione) manuale delle licenze, Alice ha **interrotto il processo** di acquisizione automatica del rilevamento.  
+Se però è stato **emesso un errore** di "*Licenza non trovata per uno o piu' componenti*", cosa che ha reso necessaria l'[Assegnazione]({{site.baseurl}}/assegnazione) manuale delle licenze, Alice ha **interrotto il processo** di acquisizione automatica del rilevamento.  
 Per questo motivo, una volta risolti tutti i *KO* segnalati sui componenti, **è necessario compiere questo passo manualmente**.
 
 La funzione di acquisizione si richiama dalla videata di *Elenco rilevamenti*
@@ -26,4 +26,4 @@ premendo il tasto acquisisci: ![acquisisci]({{site.baseurl}}/assets/pulsante_acq
 Il segnalino in giallo sulla rilga segnala lo stato di incompletezza del rilevamento.
 
 
-Una volta **acquisiti tutti i rilevamenti**, è possibile passare al [Controllo](controllo) di compatibilità delle licenze.
+Una volta **acquisiti tutti i rilevamenti**, è possibile passare al [Controllo]({{site.baseurl}}/controllo) di compatibilità delle licenze.

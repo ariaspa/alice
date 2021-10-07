@@ -11,7 +11,7 @@ E' la fase in cui Alice, acquisiti tutti i rilevamenti per la release del prodot
 2. con la licenza con cui si rilascia il prodotto
 3. con il tipo d'uso dello prodotto. 
 
-**Se** si è dovuti ricorrere alla [Acquisizione](acquisizione) manuale dei componenti, allora **Alice non ha potuto eseguire automaticamente il controllo**.  
+**Se** si è dovuti ricorrere alla [Acquisizione]({{site.baseurl}}/acquisizione) manuale dei componenti, allora **Alice non ha potuto eseguire automaticamente il controllo**.  
 Lo stato della release, e in generale lo stato del prodotto, sarà **NC**, cioè: "*Non Controllato*".  
 Di conseguenza il controllo **va eseguito manualmente**.
 
@@ -47,7 +47,7 @@ E' una licenza di tipo proprietario.
 * *Use*  
 Tipo d'uso del prodotto.
 * *Licenza compatibilità componenti*  
-La licenza risultante dall'[analisi di compatibilità](analisi_compatibilita) dell'insieme delle licenze di tutti i componenti del prodotto.
+La licenza risultante dall'[analisi di compatibilità]({{site.baseurl}}/analisi_compatibilita) dell'insieme delle licenze di tutti i componenti del prodotto.
 
 
 La sezione **rossa**, degli **Errori**, compare solo se ci sono errori bloccanti.  

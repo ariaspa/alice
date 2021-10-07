@@ -158,4 +158,4 @@ Inoltre occorre **spuntare** la casella **Proprio**, per segnalare che il compon
 
 
 ### Passo successivo
-Una volta assegnata la licenza corretta a tutti i componenti in errore, è necessario procedere all'[Acquisizione](acquisizione) dei componenti rilevati.
+Una volta assegnata la licenza corretta a tutti i componenti in errore, è necessario procedere all'[Acquisizione]({{site.baseurl}}/acquisizione) dei componenti rilevati.

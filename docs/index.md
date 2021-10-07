@@ -22,4 +22,4 @@ La procedura di compilazione lo invia poi automaticamente ad Alice.
 
 Alice restituisce **l'esito del controllo** indicando le eventuali incompatibilità dei componenti, **oppure segnala errore** quando non riesce ad eseguire il controllo **per mancanza di dati**.
 
-Perchè Alice possa esaminare i componenti di un prodotto è quindi **necessaria** una minima [Preparazione](preparazione).
+Perchè Alice possa esaminare i componenti di un prodotto è quindi **necessaria** una minima [Preparazione]({{site.baseurl}}/preparazione).
