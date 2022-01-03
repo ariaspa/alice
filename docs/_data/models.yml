@@ -2,10 +2,13 @@
   link: /prodotto.html
 - name: Versione
   link: /versione.html
-- name: Rilevamento
-  link: /rilevamento.html
-- name: Componente
-  link: /componente.html
 - name: Licenza
   link: /licenza.html
-  
+- name: Rilevamento
+  link: /rilevamento.html
+- name: Comp.Rilevato
+  link: /comp_rilevato.html
+- name: Componente
+  link: /componente.html
+- name: Legame
+  link: /legame.html

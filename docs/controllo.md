@@ -3,23 +3,27 @@ layout: default
 title: Controllo compatibilità licenze 
 ---
 
-Anche questa funzionalità è **necessaria solo se si sono dovute assegnare licenze manualmente**.  
-Altrimenti avviene automaticamente.
-
-E' la fase in cui Alice, acquisiti tutti i rilevamenti per la release del prodotto, esamina l'intero insieme dei componenti che la compongono per determinare **se le licenze dei componenti sono compatibili**:
+E' la fase in cui Alice, acquisiti tutti i rilevamenti per la versione del prodotto, esamina l'intero insieme dei componenti che la compongono per determinare **se le licenze dei componenti sono compatibili**:
 1. tra loro
 2. con la licenza con cui si rilascia il prodotto
 3. con il tipo d'uso dello prodotto. 
-
-**Se** si è dovuti ricorrere alla [Acquisizione]({{site.baseurl}}/acquisizione) manuale dei componenti, allora **Alice non ha potuto eseguire automaticamente il controllo**.  
-Lo stato della release, e in generale lo stato del prodotto, sarà **NC**, cioè: "*Non Controllato*".  
-Di conseguenza il controllo **va eseguito manualmente**.
 
 L'esecuzione del controllo aggiorna il **flag di stato** del prodotto.  
 * Se il risultato è **OK**, per quanto riguarda le licenze **il prodotto può essere rilasciato** (salvo errori successivi nella procedura di compilazione inerenti a sicurezza, qualità del codice o altro).
 * Se invece è **KO**, bisogna entrare nel merito delle segnalazioni di errore sulla compatibilità licenze.
 * Se Alice per qualche motivo non riesce ancora ad eseguire il controllo, lo stato rimane impostato a **NC**.  
 Anche in questo caso occorre analizzare la segnalazione che Alice emette.
+
+
+## Esecuzione automatica
+
+Questa funzionalità è richiamata automaticamente dalla [Compilazione](compilazione).
+
+L'esecuzione automatica è però condizionata al fatto che le fasi automatiche di [Rilevazione](rilevazione) e [Acquisizione](acquisizione) si siano svolte senza problemi.
+
+Altrimenti, se si sono dovute **assegnare licenze manualmente** o si è dovuti ricorrere alla **Acquisizione manuale** dei componenti, allora l'**Esito** del controllo per la versione, e in generale lo stato del prodotto, sarà **NC**, cioè: "*Non Completato*".  
+In tal caso il controllo **va eseguito manualmente**.
+
 
 ## Esecuzione manuale
 

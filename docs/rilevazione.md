@@ -3,7 +3,7 @@ layout: default
 title: Rilevazione dei componenti 
 ---
 
-La compilazione del prodotto genera uno o più file xml e li inoltra ad Alice che, per ogni file ricevuto crea un [Rilevamento]({{site.baseurl}}/rilevamento) e lo associa alla [Release](release) del prodotto che è stata appena creata.  
+La compilazione del prodotto genera uno o più file xml e li inoltra ad Alice che, per ogni file ricevuto crea un [Rilevamento]({{site.baseurl}}/rilevamento) e lo associa alla [Versione](versione) del prodotto che è stata appena creata.  
 
 Per ogni tag *artifactId* contenuto nel file xml, crea un [componente rilevato]({{site.baseurl}}/componente), e lo associa al rilevamento.  
 

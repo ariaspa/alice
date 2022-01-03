@@ -6,7 +6,7 @@ title: Preparazione
 Per fare in modo che Alice possa controllare un prodotto è necessario:	
 
 ## Censire il prodotto
-Per *censire* il prodotto è sufficiente entrare in Alice in *Prodotti => Prodotti* e dalla videata di elenco premere il tasto *Inserisci*.  
+Per *censire* il prodotto è sufficiente entrare in Alice in *Verifica => Prodotti* e dalla videata di elenco premere il tasto *Inserisci*.  
 
 I dati fondamentali per l'esecuzione del controllo sono:
 * il **Nome**, che deve essere identico (corrispondenza case-sensitive) a quello registrato in Elettra.  

@@ -1,11 +1,16 @@
 <nav>
 	<p>
+	<a href="{{site.baseurl}}/guida_rapida" {% if page.url == "/guida_rapida.html" %} class="current" {% endif %}>
+    Guida Rapida
+  </a>
+	</p>
+	<p>
 	<a href="{{site.baseurl}}/" {% if page.url == "/" %} class="current" {% endif %}>
     Introduzione
   </a>
 	</p>
   
-  <div class="ul_head">Certificazione</div>
+  <div class="ul_head">Fasi</div>
 	<ul>
   {% for item in site.data.navigation %}
     <li><a href="{{site.baseurl}}{{ item.link }}" {% if page.url == item.link %} class="current" {% endif %}>
@@ -20,11 +25,11 @@
   </a>
   </p>
   -->
-<!--  
+  
   <div class="ul_head">Classi</div>
 	<ul>
   {% for item in site.data.models %}
-    <li><a href="{{ item.link }}" {% if page.url == item.link %} class="current" {% endif %}>
+    <li><a href="{{site.baseurl}}{{ item.link }}" {% if page.url == item.link %} class="current" {% endif %}>
       {{ item.name }}
     </a></li>
   {% endfor %}
@@ -33,10 +38,10 @@
   <div class="ul_head">Metodi</div>
 	<ul>
   {% for item in site.data.methods %}
-    <li><a href="{{ item.link }}" {% if page.url == item.link %} class="current" {% endif %}>
+    <li><a href="{{site.baseurl}}{{ item.link }}" {% if page.url == item.link %} class="current" {% endif %}>
       {{ item.name }}
     </a></li>
   {% endfor %}
   </ul>
-  -->
+  
 </nav>
