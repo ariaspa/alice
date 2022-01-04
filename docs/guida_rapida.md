@@ -80,7 +80,7 @@ Se però il vostro software non ha effettivamente alcuna dependency, Alice non p
 
 ## Errori nel controllo
 Se si riceve un **KO** dal controllo licenze, è necessario individuare quale componente genera l'incompatibilità.  
-Non sempre è facile individuarlo. Un esempio di come procedere è contenuto nel paragrafo: [come leggere il risultato del controllo](controllo/#come-leggere-il-risultato-del-controllo), nel manuale utente.  
+Non sempre è facile individuarlo. Un esempio di come procedere è contenuto nel paragrafo: [come leggere il risultato del controllo](controllo#come-leggere-il-risultato-del-controllo), nel manuale utente.  
 
 
 ### Impossibile verificare compatibilità: mancanza regole

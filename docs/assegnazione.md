@@ -54,7 +54,7 @@ In caso non si riesca a determinare il numero di versione della licenza, si sceg
 ### Caso 2: Licenza scritta in modo poco standard
 ![licenza_scritta_in_modo_non_standard]({{site.baseurl}}/assets/c3p0.png){:.small}{:onclick="zoomImage(this)"}
 
-Non esiste una codifica standard delle licenze, l'autore del componente scrive il nome della licenza liberamente; lo *stemming* spesso non riesce a riconoscere dal testo una licenza che per un essere umano risulta intuibile.
+Non esiste una codifica standard delle licenze, l'autore del componente scrive il nome della licenza liberamente; lo *stemming* spesso non riesce a riconoscere dal testo una licenza che per un essere umano risulta facilmente intuibile.
 
 Nell'esempio per il componente "c3p0" la licenza è stata specificata solo in sigla (LGPL) e quindi non è stata riconosciuta.  
 Per il successivo componente "javassist" la descrizione completa (GNU Lesser General Public License) è stata invece riconosciuta.
@@ -104,7 +104,7 @@ In questo caso il componente: "*javassist*" risulta rilevato 3 volte: una per og
 
 La cosa migliore da fare è **cancellare** le righe relative alle licenze che non interessano, oppure modificare le righe in modo da **assegnare sempre la stessa licenza**.
 
-Conviene tenere la licenza meno "protettiva". (Per il concetto di protettività delle licenza si veda la pagina relativa alle [Licenze](licenze)).
+Conviene tenere la licenza meno "protettiva". (Per il concetto di protettività delle licenza si veda la pagina relativa alle [Licenze](licenza)).
 
 
 ### Caso 5: Licenza doppia  

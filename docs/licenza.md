@@ -39,12 +39,12 @@ mspl				|	Microsoft Public License
 - Versione
 - Descrizione
 - Tipo Licenza  
-	Grado di [permissività](https://en.wikipedia.org/wiki/Permissive_software_license) della licenza riguardo alla [compatibilità](https://en.wikipedia.org/wiki/Permissive_software_license#License_compatibility).
+	Grado di [permissività](https://en.wikipedia.org/wiki/Permissive_software_license){:target="_blank"} della licenza riguardo alla [compatibilità](https://en.wikipedia.org/wiki/Permissive_software_license#License_compatibility){:target="_blank"}.
 - Categoria
 
 ## Dati facoltativi
 - OSI  
-	Licenza [approvata ufficialmente](https://tldrlegal.com/licenses/tags/OSI-Approved) dalla [Open Source Initiative](https://opensource.org/)
+	Licenza [approvata ufficialmente](https://tldrlegal.com/licenses/tags/OSI-Approved){:target="_blank"} dalla [Open Source Initiative](https://opensource.org/){:target="_blank"}
 - Licenza equivalente  
 	Licenza cui la presente è assimilata nell'[analisi di compatibilità](analisi_compatibilita).
 - Testo  
