@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "about/alice"
   get "about/lispa"
-  get "about/index"
 
   resources :rules do
     resources :rule_entries

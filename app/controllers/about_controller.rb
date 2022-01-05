@@ -1,8 +1,4 @@
 class AboutController < ApplicationController
-  def index
-       @title = "Informazioni su Alice"
-  end
-
   def alice
        @title = "Alice"
   end

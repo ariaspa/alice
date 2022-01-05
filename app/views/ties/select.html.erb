@@ -2,7 +2,7 @@
   <div class="panel-heading">
     <h3 class="panel-title">
       <% if !@release.nil? %>
-    	<%= t('activerecord.models.release') %>: <%= @release.product.name %> - v. <%= @release.version_name %>
+    	<%= t('activerecord.models.product') %>: <%= @release.product.name %> - v. <%= @release.version_name %>
       <% end %>
       <% if !@component.nil? %>
     	<%= t('activerecord.models.component') %>: <%= @component.name %> - v. <%= @component.version %>

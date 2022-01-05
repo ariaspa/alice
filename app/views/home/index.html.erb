@@ -1,44 +1,47 @@
-<div class="row">
-  <div class="col-md-4">
-    <h4>Licenze OSI</h4>
-    <br />
-    <p>
-      <%= image_tag("sfondo1.png", :alt => "Elenco Licenze OSI", :class => "img-responsive img-rounded") %>
-    </p>
-    <br />
-    <p>
-      Elenco delle licenze open source riconosciute da Open Source Initiative (OSI). <br /> 
-      La <b>Open Source Initiative</b> è un'organizzazione, fondata nel febbraio 1998, dedicata a promuovere software open source.   
-    </p>
-    <br />
-    <p><%= link_to t('actions.view_details'), licenses_path(:commit => "clear"), :class => "btn btn-default" %></p>
+<br />
+<br />
+
+<div class="container-fluid">
+
+<div class="col-md-4">
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	<h3 class="panel-title">Documentazione</h3>
   </div>
-  <div class="col-md-4">
-    <h4>Verifica licenze</h4>
-    <br />
-    <p>
-      <%= image_tag("sfondo2.png", :alt => "Verifica licenze", :class => "img-responsive img-rounded") %>
-    </p>
-    <br />
-    <p>
-      Verifica del corretto utilizzo delle lilcenze dei componenti dell'applicazione in funzione del tipo di utilizzo del prodotto e della sua licenza finale. <br />
-      Per la verifica occorre fornire l'elenco dei componenti utilizzati.
-    </p>
-    <br />
-    <p><%= link_to t('actions.view_details'), products_path(:commit => "clear"), :class => "btn btn-default" %></p>
-  </div>
-  <div class="col-md-4">
-    <h4>Componenti controllati</h4>
-    <br />
-    <p>
-      <%= image_tag("sfondo3.png", :alt => "Componenti controllati", :class => "img-responsive img-rounded") %>
-    </p>
-    <br />
-    <p>
-      Archivio dei componenti verificati. Questo archivio viene incrementato ogni volta che si effettua una verifica delle licenze. <br />
-      Contiene le informazioni rilevanti sui componenti e sulla loro modalità di utilizzo.
-    </p>
-    <br />
-    <p><%= link_to t('actions.view_details'), components_path(:commit => "clear"), :class => "btn btn-default" %></p>
+  <div class="panel-body center">
+		<%= image_tag("manual_ico.jpg", :alt => "Manuale", :style => "max-height: 280px", :class => "img-rounded img-thumbnail img-responsive") %>
+    <br /><br />
+   	<%= link_to "Guida rapida", "http://ariaspa.github.io/alice/quick_guide", :class => "btn btn-primary btn-lg" %>
+   	<%= link_to "Manuale utente", "http://ariaspa.github.io/alice/", :class => "btn btn-default btn-lg" %>
   </div>
 </div>
+</div>
+
+
+<div class="col-md-4">
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	<h3 class="panel-title">Alice</h3>
+  </div>
+  <div class="panel-body center">
+    <%= image_tag("alice2.png", :alt => "Logo Alice", :class => "img-rounded img-thumbnail img-responsive") %>
+    <br /><br />
+   	<%= link_to "Chi è Alice ?", about_alice_path, :class => "btn btn-default" %>
+  </div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	<h3 class="panel-title">Azienda Regionale Innovazione Acquisti</h3>
+  </div>
+  <div class="panel-body center">
+    <%= image_tag("aria.png", :alt => "Azienda Regionale Innovazione Acquisti", :class => "img-rounded img-thumbnail img-responsive") %>
+    <br /><br /><br /><br/><br/>
+  	<%= link_to "Azienda Regionale Innovazione Acquisti", about_lispa_path, :class => "btn btn-default" %>    
+  </div>
+</div>
+</div>
+
+</div>  
