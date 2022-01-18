@@ -7,18 +7,28 @@ default: &default
   alice_logger_path: "../data/"
   txt_logging: true
   db_logging: true
+  # mail list per controllo modifiche utenti
+  spy_mail_list: ""
+  # logo stregatto al posto di alice
+  cheshire_cat: false
+  motto: "Sii ciò che sembri!"
   
 development:
   <<: *default
   alice_logger_name: alice_devel.log
-  spy_mail_list: ""
-
+  cheshire_cat: true
+  
 test:
   <<: *default
   alice_logger_name: alice_test.log
 
+preit:
+  <<: *default
+  alice_logger_name: alice_prod.log
+  cheshire_cat: true
+  motto: "Le modifiche che qui fai ... domani non le vedrai!"
+
 production:
   <<: *default
   alice_logger_name: alice_prod.log
-  # mail list per controllo modifiche utenti
   spy_mail_list: "release.management@ariaspa.it"

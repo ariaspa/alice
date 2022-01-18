@@ -27,8 +27,12 @@
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">              	
           <div class="nav navbar-header">
+						<% if ALICE['cheshire_cat'] %>
+            <%= image_tag("stregatto.png", :size=>"52x76", :alt => "Stregatto", :class => "pull-left logo", :'data-toggle' => "tooltip", :'data-placement' => "bottom", :title => "#{ALICE['motto']}") %>
+						<% else %>
             <%= image_tag("alice.png", :alt => "Alice", :class => "pull-left logo") %>
-            <%= link_to "Alice", '#', :class => "navbar-brand" %>
+            <% end %>
+            <%= link_to "Alice - #{Rails.env}", '#', :class => "navbar-brand" %>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>

@@ -195,7 +195,6 @@ class DetectionsController < ApplicationController
           # Valido l'acquisizione
           @detection.validate_acquire
           if @detection.errors.full_messages.length > 0
-            @ip=Socket.ip_address_list.detect{|intf| intf.ipv4_private?}.ip_address
             @link = detected_components_path(detection_id: @detection.id)
             if @detection.detected_components.length == 0 
               @result = {"result" => 5, "product" => "#{@name}", "version" => "#{@version}", "detection" => "#{@detection_name}",
@@ -204,7 +203,7 @@ class DetectionsController < ApplicationController
             else
               require 'socket'
               @result = {"result" => 3, "product" => "#{@name}", "version" => "#{@version}", "detection" => "#{@detection_name}",
-                 "msg" => I18n.t("errors.messages.r_detect.license_not_found") + detection_data + " link: http://#{@ip}:#{request.port}#{@link}"}
+                 "msg" => I18n.t("errors.messages.r_detect.license_not_found") + detection_data + " link: #{request.base_url}#{@link}"}
             end
           else
             # Acquisisco il rilevamento

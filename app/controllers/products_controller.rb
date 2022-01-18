@@ -182,20 +182,19 @@ class ProductsController < ApplicationController
         @version = @product.last_release.version_name
       end
       # Controllo parametro product_version
-      @ip=Socket.ip_address_list.detect{|intf| intf.ipv4_private?}.ip_address
       @link = releases_path(product_id: @product.id)
       @release = Release.where('product_id = ? and version_name LIKE ?', "#{@product.id}", "#{@version}%").order('sequential_number desc').take
       if @release.nil?
         @result = {"result" => 2, "product" => "#{@name}", "version" => "#{@version}",
           "msg" => I18n.t("errors.messages.check.product_version_not_found", product_name: "#{@name}", version: "#{@version}") +
-                   " link: http://#{@ip}:#{request.port}#{@link}"}
+                   " link: #{request.base_url}#{@link}"}
       else
         if @release.precheck
           @release.analyze_rules
           if @release.errors.full_messages.length > 0
             @result = {"result" => 6, "product" => "#{@name}", "version" => "#{@version}",
                "msg" => I18n.t("errors.messages.check.licenses_incompatibility", product_name: "#{@name}", version: "#{@release.version_name}") +
-                      " - #{@release.errors.full_messages.last}" + "link: http://#{@ip}:#{request.port}#{@link}"}
+                      " - #{@release.errors.full_messages.last}" + "link: #{request.base_url}#{@link}"}
           else
             @result = {"result" => 0, "product" => "#{@name}", "version" => "#{@version}",
                "msg" => I18n.t("infos.check.ok", product_name: "#{@name}", version: "#{@release.version_name}")}
@@ -205,7 +204,7 @@ class ProductsController < ApplicationController
         else
           @result = {"result" => 5, "product" => "#{@name}", "version" => "#{@version}",
              "msg" => I18n.t("infos.check.product_data", product_name: "#{@name}", version: "#{@release.version_name}") + 
-                    "- #{@release.errors.full_messages.last}" + " link: http://#{@ip}:#{request.port}#{@link}"}
+                    "- #{@release.errors.full_messages.last}" + " link: #{request.base_url}#{@link}"}
 
           # Aggiorno stato del prodotto
           @release.update_attributes(check_result: nil, checked_at: nil, compatible_license_id: nil)
