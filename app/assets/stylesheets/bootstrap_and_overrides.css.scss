@@ -24,10 +24,12 @@ pre {
 }
 a {
   color: #000;
+/*
   &:hover {
     color: #fff;
     background-color: #000;
   }
+*/
 }
 div {
   &.field, &.actions {
@@ -84,25 +86,21 @@ div {
   */
   margin: 15px 15px 15px 15px; 
 }
+/*
 .content a:hover {
   color: #000000;
   background: transparent;
 }
+*/
 footer {
   position: absolute;
   width: 100%;
   background-color: #003A60;
   color: #ffffff;
   padding: 30px;
-/*  
-  color: #fefefe;
-  background: #3e3e3e;
-  padding: 17px 0 18px 0;
-  border-top: 1px solid #000;
-*/  
 }
 footer a {
-  color: #fefefe;
+  color: #efefef;
 }
 footer a:hover {
   color: #efefef;
@@ -216,9 +214,12 @@ footer a:visited {
   font-size: 12px;
   line-height: 1.428571429;
 }
-.btn-primary.active {
-  background-color: #000000;
+
+.btn-primary.active,
+.btn-primary.active.focus {
+  background-color: gold;
 }
+
 .center {
   text-align: center; 
 }
@@ -238,6 +239,7 @@ table {
 .navbar-inverse .navbar-brand,
 .navbar-inverse .navbar-nav > li > a {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
+	font-size: 16px;
 }
 .navbar-static-top,
 .navbar-fixed-top,
