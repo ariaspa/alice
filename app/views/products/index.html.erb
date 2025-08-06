@@ -125,8 +125,6 @@
               	<%= link_to raw('<span class="glyphicon glyphicon-list"></span>'),
                  release_ties_show_path(product.last_release), :class => "btn btn-default",
                  :title => t('activerecord.models.components'), :alt => t('activerecord.models.components') %>
-                <%= link_to raw('<span class="glyphicon glyphicon-picture"></span>'),
-                 product.last_release, :class => "btn btn-default", :title => t('actions.graphics'), :alt => t('actions.graphics') %>
               <% end %>
             	<%= link_to raw('<span class="glyphicon glyphicon-trash"></span>'),
             	 product, method: :delete, data: { confirm: t('actions.are_you_sure') }, 

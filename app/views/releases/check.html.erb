@@ -12,11 +12,6 @@
       <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
         <span class="glyphicon glyphicon-ok glyphicon-inverse"></span> <%= t('actions.save') %>
       <% end %>
-      <% if !@release.check_result.nil? %>
-        <%= link_to release_print_check_path(@release, :format => :pdf), :class => "btn btn-default" do %>
-          <span class="glyphicon glyphicon-print"></span> <%= t('actions.print') %>
-        <% end %>
-      <% end %>
       <%= link_to (releases_path + "?product_id=#{@release.product.id}"), :class => "btn btn-default" do %>
           <span class="glyphicon glyphicon-arrow-left"></span> <%= t('actions.back') %>
       <% end %>
