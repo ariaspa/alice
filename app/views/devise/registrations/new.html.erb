@@ -1,18 +1,31 @@
 <h2><%= t('actions.sign_up') %></h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+<% if Rails.env == "preit" %>
+	<h1>La registrazione deve essere fatta nell'ambiente di Produzione</h1>
+	<h3>I dati dei profili utente (e relative password) sono copiati dall'ambiente di Produzione a quello di Preit allo scadere di ogni mezzora.<h3>
+<% else %>
+	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+		<%= f.error_notification %>
 
-  <div class="form-group">
-    <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :password, :required => true %>
-    <%= f.input :password_confirmation, :required => true %>
-  </div>
+		<div class="form-group">
+			<%= f.input :email, :required => true, :autofocus => true %>
+			<%= f.input :password, :required => true %>
+			<%= f.input :password_confirmation, :required => true %>
+		</div>
 
-  <div class="form-group">
-    <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
-      <span class="glyphicon glyphicon-ok glyphicon-inverse"></span> <%= t('actions.sign_up') %>  
-    <% end %>
-    <%= render "devise/shared/links" %>
-  </div>
+		<div class="form-group">
+			<%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+				<span class="glyphicon glyphicon-ok glyphicon-inverse"></span> <%= t('actions.sign_up') %>  
+			<% end %>
+			<%= render "devise/shared/links" %>
+		</div>
+	<% end %>
+<div>
+	<strong>Note:</strong><br/>
+	Verrà inviata una email di conferma contenente il link per il primo accesso.<br/>
+	La email ha come mittente <strong>alice@ariaspa.it</strong>.<br/>
+	Controllare anche la casella di "posta indesiderata / spam".
+</div>
+	
 <% end %>
+

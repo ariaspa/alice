@@ -26,7 +26,7 @@ preit:
   <<: *default
   alice_logger_name: alice_prod.log
   cheshire_cat: true
-  motto: "Le modifiche che qui fai ... domani non le vedrai!"
+  motto: "Le modifiche che qui fai ... dal nuovo mese più non le vedrai!"
 
 production:
   <<: *default
