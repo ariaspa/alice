@@ -11,8 +11,8 @@ title: Guida Rapida
 Per poter controllare le licenze, **il vostro software deve essere censito** come [Prodotto](prodotto) in Alice.
 
 Nel caso non lo sia:
-1. cliccate sul link [alices.lispadev.local/alice/](http://alices.lispadev.local/alice/)  
-o, per l'ambiente di pre-it [alicepres.lispadev.local/alice/](http://aliceres.lispadev.local/alice/)  
+1. cliccate sul link [alices.lispadev.local/alice/](http://alices.lispadev.local/alice/){:target="_blank"}  
+o, per l'ambiente di pre-it [alicepres.lispadev.local/alice/](http://alicepres.lispadev.local/alice/){:target="_blank"}  
 (se state lavorando da remoto dovete collegarvi in VPN)
 2. nella barra di navigazione in alto, cliccate su *Verifica => Prodotti*
 3. in basso all'*Elenco Prodotti*, cliccate sul pulsante *Inserisci*.  
